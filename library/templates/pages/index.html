@@ -1,9 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="col-md-8">
-      <h1>Библиотека</h1>
-      <h6>На данный момент в библиотеке находится {{ total_count }} книг</h6>
-    </div>
-  </div>
+  <h1>Библиотека</h1>
+  <p>Эта электронная библиотека предоставляет доступ к разнообразным книгам, авторам и жанрам, позволяя пользователям легко находить и читать любимые произведения.</p>
+  <p>На данный момент в библиотеке находится:</p>
+  <ul>
+    <li>Книг: {{ total_books }}.</li>
+    <li>Авторов: {{ total_authors }}.</li>
+    <li>Переводчиков: {{ total_translators }}.</li>
+    <li>Жанров: {{ total_genres }}.</li>
+  </ul>
+  <p>Поддерживаются форматы скачивания</p>
+  <ul>
+    <li>
+      <a href="https://ru.wikipedia.org/wiki/FictionBook">fb2</a>
+    </li>
+    <li>
+      <a href="https://ru.wikipedia.org/wiki/Electronic_Publication">epub</a>
+    </li>
+    <li>
+      <a href="https://en.wikipedia.org/wiki/Mobipocket">mobi</a>
+    </li>
+  </ul>
 {% endblock %}
