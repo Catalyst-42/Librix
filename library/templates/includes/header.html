@@ -14,6 +14,11 @@
               <a class="nav-link active">Книга</a>
             </li>
           {% endif %}
+          {% if view_name == 'catalog:author_detail' %}
+            <li class="nav-item">
+              <a class="nav-link active">Автор</a>
+            </li>
+          {% endif %}
         </ul>
       {% endwith %}
     </div>

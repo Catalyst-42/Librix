@@ -26,6 +26,8 @@ class Genre(models.Model):
 
 
 class Author(Person):
+    icon = models.ImageField('Фото', upload_to='icons', blank=True)
+
     class Meta:
         verbose_name = 'автор'
         verbose_name_plural = 'Авторы'
