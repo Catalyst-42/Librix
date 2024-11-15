@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <h1>{{ author }}</h1>
+  <p>{{ author.description }}</p>
+  <hr />
+  <h5>Книги автора ({{ books|length }}):</h5>
+  <ul>
+    {% for book in books %}
+      <li>
+        <a href="{% url 'catalog:book_detail' book.id %}">{{ book.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

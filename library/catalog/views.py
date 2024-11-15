@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
 
-from .models import Book
+from .models import Book, Author
 
 class BookListView(ListView):
     model = Book
@@ -55,3 +55,12 @@ class BookListView(ListView):
 
 class BookDetailView(DetailView):
     model = Book
+
+
+class AuthorDetailView(DetailView):
+    model = Author
+
+    def get_context_data(self, **kwargs):
+        context = super(AuthorDetailView, self).get_context_data(**kwargs)
+        context['books'] = self.object.book_set.all()
+        return context

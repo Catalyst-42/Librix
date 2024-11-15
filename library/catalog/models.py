@@ -8,7 +8,7 @@ class Person(models.Model):
     description = models.TextField('Описание', blank=True)
     
     def __str__(self):
-        return f"{self.first_name} {self.second_name} {self.last_name}"
+        return f"{self.first_name} {self.last_name} {self.second_name}"
 
     class Meta:
         abstract = True

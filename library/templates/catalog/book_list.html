@@ -7,26 +7,34 @@
       <input type="text" name="search" value="{{ search }}" class="form-control" placeholder="Поиск" />
       <button type="submit" class="btn btn-primary">Поиск</button>
     </div>
-    <div class="d-flex flex-wrap mt-2">
-      <div class="form-check me-2">
-        <input class="form-check-input" type="checkbox" name="search_by_title" id="searchByTitle" {% if search_by_title %} checked {% endif %} />
-        <label class="form-check-label" for="searchByTitle">Название</label>
-      </div>
-      <div class="form-check me-2">
-        <input class="form-check-input" type="checkbox" name="search_by_author" id="searchByAuthor" {% if search_by_author %} checked {% endif %} />
-        <label class="form-check-label" for="searchByAuthor">Автор</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="search_by_genre" id="searchByGenre" {% if search_by_genre %} checked {% endif %} />
-        <label class="form-check-label" for="searchByGenre">Жанр</label>
-      </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox"
+      name="search_by_title" id="stitle"
+      {% if search_by_title %} checked {% endif %} />
+      <label class="form-check-label" for="stitle">Название</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox"
+      name="search_by_author" id="sauthor"
+      {% if search_by_author %} checked {% endif %} />
+      <label class="form-check-label" for="sauthor">Автор</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox"
+      name="search_by_genre" id="sgenre"
+      {% if search_by_genre %} checked {% endif %} />
+      <label class="form-check-label" for="sgenre">Жанр</label>
     </div>
   </form>
 
   <ul class="list-group">
     {% for book in page_obj %}
       <li class="list-group-item">
-        <a href="{% url 'catalog:book_detail' book.id %}">{{ book.title }}</a> - {{ book.author }} - {{ book.genre }}
+        <a href="{% url 'catalog:book_detail' book.id %}">{{ book.title }}</a>
+        <span> • </span>
+        <a href="{% url 'catalog:author_detail' book.author.id %}">{{ book.author }}</a>
+        <span> • </span>
+        {{ book.genre }}
       </li>
     {% empty %}
       <li class="list-group-item">Книги не найдены.</li>

@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-8 mb-3">
       <h1>{{ book.title }}</h1>
-      <h6>{{ book.author }}</h6>
+      <h6><a href="{% url 'catalog:author_detail' book.author.id %}">{{ book.author }}</a></h6>
       <p>{{ book.description }}</p>
       <hr />
       <div>
