@@ -59,6 +59,7 @@ class Book(models.Model):
         return self.title
     
     class Meta:
+        ordering = ["id"]
         verbose_name = 'книга'
         verbose_name_plural = 'Книги'
 

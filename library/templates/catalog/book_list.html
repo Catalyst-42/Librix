@@ -5,25 +5,27 @@
   <form method="get" action="{% url 'catalog:book_list' %}" class="mb-4">
     <div class="input-group">
       <input type="text" name="search" value="{{ search }}" class="form-control" placeholder="Поиск" />
-      <button type="submit" class="btn btn-primary">Поиск</button>
+      <button type="submit" class="btn btn-primary">Искать</button>
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox"
-      name="search_by_title" id="stitle"
-      {% if search_by_title %} checked {% endif %} />
-      <label class="form-check-label" for="stitle">Название</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox"
-      name="search_by_author" id="sauthor"
-      {% if search_by_author %} checked {% endif %} />
-      <label class="form-check-label" for="sauthor">Автор</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox"
-      name="search_by_genre" id="sgenre"
-      {% if search_by_genre %} checked {% endif %} />
-      <label class="form-check-label" for="sgenre">Жанр</label>
+    <div class="mt-4">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox"
+        name="search_by_title" id="stitle"
+        {% if search_by_title %} checked {% endif %} />
+        <label class="form-check-label" for="stitle">Название</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox"
+        name="search_by_author" id="sauthor"
+        {% if search_by_author %} checked {% endif %} />
+        <label class="form-check-label" for="sauthor">Автор</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox"
+        name="search_by_genre" id="sgenre"
+        {% if search_by_genre %} checked {% endif %} />
+        <label class="form-check-label" for="sgenre">Жанр</label>
+      </div>
     </div>
   </form>
 
