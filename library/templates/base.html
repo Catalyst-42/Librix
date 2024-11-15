@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Библиотека</title>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    
+  </head>
+  {% comment %} data-bs-theme="dark" {% endcomment %}
+  <body class="d-flex flex-column min-vh-100" data-bs-theme="dark"> 
+    {% include "includes/header.html" %}
+    <main class="container pt-5 mb-4">
+        {% block content %}{% endblock %}
+    </main>
+    {% include "includes/footer.html" %}
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <form method="get" action="{% url 'catalog:book_list' %}" class="mb-4">
+    <div class="input-group">
+      <input type="text" name="search" value="{{ search }}" class="form-control" placeholder="Поиск по названию книги или автору" />
+      <button type="submit" class="btn btn-primary">Поиск</button>
+    </div>
+  </form>
+
+  <ul class="list-group">
+    {% for book in page_obj %}
+      <li class="list-group-item">
+        <a href="{% url 'catalog:book_detail' book.id %}">{{ book.title }}</a> - {{ book.author }}
+      </li>
+    {% empty %}
+      <li class="list-group-item">Книги не найдены.</li>
+    {% endfor %}
+  </ul>
+
+  {% include 'includes/paginator.html' %}
+{% endblock %}

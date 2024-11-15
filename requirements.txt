@@ -1,0 +1,7 @@
+pytest
+django
+django-bootstrap
+pillow
+pytest
+pytest-django
+mysqlclient
